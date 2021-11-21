@@ -1,7 +1,6 @@
 // Source code to interact with smart contract
 
 window.web3 = new Web3(window.ethereum)
-//console.log("2");
 // web3 provider with fallback for old version
 
   // contractAddress and abi are setted after contract deploy
@@ -31,7 +30,6 @@ window.web3 = new Web3(window.ethereum)
 
   //Smart contract functions
   function registerSetInfo() {
-    console.log(account);
     info = $("#newInfo").val();
     contract.methods.putBet(info).send({from: account, value: info * 10 ** 18}).then( function(tx) { 
       console.log("Transaction: ", tx); 
@@ -58,7 +56,6 @@ window.web3 = new Web3(window.ethereum)
     contract.methods.takeBet().send({from: account, value: a * 10 ** 18}).then( function(tx) { 
       console.log("Transaction: ", tx); 
     });
-    console.log("3");
   }
   
   function registerConnect() {
@@ -66,7 +63,6 @@ window.web3 = new Web3(window.ethereum)
     // Modern dapp browsers...
     console.log("klappt bis hier");
     if (window.ethereum) {
-      console.log("passt");
         window.web3 = new Web3(window.ethereum)
         try {
             // ask user for permission
@@ -110,6 +106,5 @@ window.web3 = new Web3(window.ethereum)
         web3.eth.defaultAccount = account;
       });
 
-      console.log(account);
   }
   
