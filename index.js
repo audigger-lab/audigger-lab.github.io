@@ -31,6 +31,7 @@ window.web3 = new Web3(window.ethereum)
 
   //Smart contract functions
   function registerSetInfo() {
+    console.log(account);
     info = $("#newInfo").val();
     contract.methods.putBet(info).send({from: account, value: info * 10 ** 18}).then( function(tx) { 
       console.log("Transaction: ", tx); 
@@ -108,5 +109,7 @@ window.web3 = new Web3(window.ethereum)
         console.log('Account: ' + account);
         web3.eth.defaultAccount = account;
       });
+
+      console.log(account);
   }
   
