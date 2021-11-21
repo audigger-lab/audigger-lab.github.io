@@ -27,6 +27,8 @@ window.web3 = new Web3(window.ethereum)
     console.log('Account: ' + account);
     web3.eth.defaultAccount = account;
   });
+
+
   //Smart contract functions
   function registerSetInfo() {
     info = $("#newInfo").val();
@@ -40,9 +42,6 @@ window.web3 = new Web3(window.ethereum)
     contract.methods.resolve_bet().send({from: account}).then( function(tx) { 
       console.log("Transaction: ", tx); 
     });
-
-
-
   }
 
   function registerGetInfo() {
@@ -53,19 +52,18 @@ window.web3 = new Web3(window.ethereum)
   }
 
   async function registerTakeBet() {
-	//var ii = await contract.methods.getInfo();
-  a = await contract.methods.getInfo().call();
-	contract.methods.takeBet().send({from: account, value: a * 10 ** 18}).then( function(tx) { 
-		console.log("Transaction: ", tx); 
-	});
-  console.log("3");
+    //var ii = await contract.methods.getInfo();
+    a = await contract.methods.getInfo().call();
+    contract.methods.takeBet().send({from: account, value: a * 10 ** 18}).then( function(tx) { 
+      console.log("Transaction: ", tx); 
+    });
+    console.log("3");
   }
   
   function registerConnect() {
 	// Modern dapp browsers...
   console.log("klappt bis hier");
   if (window.ethereum) {
-
     console.log("passt");
       window.web3 = new Web3(window.ethereum)
       try {
