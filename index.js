@@ -1,6 +1,6 @@
 // Source code to interact with smart contract
-web3 = require("web3");
-window.web3 = new web3(window.ethereum)
+
+window.web3 = new Web3(window.ethereum)
 //console.log("2");
 // web3 provider with fallback for old version
 
